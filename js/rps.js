@@ -14,8 +14,8 @@ function getComputerChoice() {
 
 function getHumanChoice() {
     // assumes correct input for now, so no handling
-    let userChoice = prompt("Rock, Paper or Scissor?");
-    return userChoice.toLowerCase();
+    let humanChoice = prompt("Rock, Paper or Scissor?");
+    return humanChoice.toLowerCase();
 }
 
 let humanScore = 0;
@@ -41,9 +41,9 @@ function playRound(humanChoice, computerChoice) {
 function playGame(roundCount) {
 
     for (let i = 0; i < roundCount; i++) {
-        let userChoice = getHumanChoice();
+        let humanChoice = getHumanChoice();
         let compChoice = getComputerChoice();
-        let winner = playRound(userChoice, compChoice);
+        let winner = playRound(humanChoice, compChoice);
         if (winner === "player") {
             humanScore += 1;
         } else if (winner === "computer") {
