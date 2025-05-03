@@ -7,7 +7,7 @@ html {
     margin: 0;
     padding: 0;
     /* temp */
-    border: 1px solid red;
+    /* border: 1px solid red; */
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -102,6 +102,34 @@ body {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
+.final-result {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 26px;
+    margin-left: -50px;
+}
+
+.reset-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#reset-btn {
+    font-size: 24px;
+    font-weight: bold;
+    padding: 8px 16px;
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: red;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.hidden {
+    display: none;
+}
 
 .footer {
     text-align: center;
