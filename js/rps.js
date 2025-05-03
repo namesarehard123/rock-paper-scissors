@@ -18,8 +18,7 @@ function getHumanChoice() {
     return humanChoice.toLowerCase();
 }
 
-let humanScore = 0;
-let computerScore = 0;
+
 
 function playRound(humanChoice, computerChoice) {
     const isTied = humanChoice === computerChoice;
@@ -56,3 +55,50 @@ function playRound(humanChoice, computerChoice) {
 // console.log(humanScore);
 // console.log(computerScore);
 
+function capitalize(str) {
+    return str[0].toUpperCase() + str.slice(1,);
+}
+
+function updateScore(playerScore, computerScore) {
+    const scoreSpan = document.querySelector("#score");
+    scoreSpan.textContent = `${playerScore} : ${computerScore}`;
+}
+
+let playerScore = 0;
+let computerScore = 0;
+const compHandDiv = document.querySelector(".computer-hand");
+const playerHandDiv = document.querySelector(".player-hand");
+
+function displayHands(playerHand, computerHand) {
+    const compMsg = "Computer played ";
+    const playerMsg = "Player played ";
+    if (!playerHand || !computerHand) {
+        playerHandDiv.textContent = "Player Hand";
+        compHandDiv.textContent = "Computer Hand"; 
+    } else {
+        playerHandDiv.textContent = playerMsg + capitalize(playerHand);
+        compHandDiv.textContent = compMsg + capitalize(computerHand);
+    }
+}
+
+
+function playGame(playerChoice) {
+    const compChoice = getComputerChoice();
+    displayHands(playerChoice, compChoice);
+
+}
+
+
+function handleRpsClick(event) {
+    if (event.target.nodeName !== "BUTTON") {
+        return;
+    }
+
+    playGame(event.target.textContent.toLowerCase());
+} 
+
+
+
+// listeners
+const rpsContainer = document.querySelector(".rps-container");
+rpsContainer.addEventListener("click", handleRpsClick);
