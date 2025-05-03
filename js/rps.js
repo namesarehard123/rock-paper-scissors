@@ -68,6 +68,9 @@ let playerScore = 0;
 let computerScore = 0;
 const compHandDiv = document.querySelector(".computer-hand");
 const playerHandDiv = document.querySelector(".player-hand");
+const finalResultDiv = document.querySelector(".final-result");
+const resetBtn = document.querySelector("#reset-btn");
+const rpsButtons = Array.from(document.querySelectorAll(".rps"))
 
 function displayHands(playerHand, computerHand) {
     const compMsg = "Computer played ";
@@ -82,9 +85,48 @@ function displayHands(playerHand, computerHand) {
 }
 
 
+function displayWinner(playerScore, computerScore) {
+    if (playerScore === 5) {
+        finalResultDiv.textContent = "Player won the game!";
+    } else {
+        finalResultDiv.textContent = "Computer won the game!";
+    }
+}
+
+function resetGame() {
+    resetBtn.classList.remove("hidden");
+    rpsButtons.forEach((btn) => btn.disabled = true);
+    // game value resets in a diff func (startGame)
+}
+
+function startGame() {
+    finalResultDiv.textContent = "";
+    playerScore = 0;
+    computerScore = 0;
+    displayHands();
+    updateScore(playerScore, computerScore);
+    rpsButtons.forEach((btn) => btn.disabled = false);
+    resetBtn.classList.add("hidden")
+
+}
+
+
 function playGame(playerChoice) {
     const compChoice = getComputerChoice();
     displayHands(playerChoice, compChoice);
+    const roundWinner = playRound(playerChoice, compChoice);
+    
+    if (roundWinner === "computer") {
+        computerScore += 1;
+    } else if (roundWinner === "player") {
+        playerScore += 1;
+    }
+
+    updateScore(playerScore, computerScore);
+    if (playerScore === 5 || computerScore === 5) {
+        displayWinner(playerScore, computerScore);
+        resetGame();
+    }
 
 }
 
@@ -102,3 +144,4 @@ function handleRpsClick(event) {
 // listeners
 const rpsContainer = document.querySelector(".rps-container");
 rpsContainer.addEventListener("click", handleRpsClick);
+resetBtn.addEventListener("click", startGame);
