@@ -22,6 +22,8 @@ body {
     font-size: 24px;
     font-weight: bold;
     padding: 14px;
+    background-color: lightgrey;
+    border-bottom: 3px solid black;
 }
 
 .main {
@@ -62,4 +64,50 @@ body {
 .rps:active {
     transform: scale(1.1);
     border: 4px solid goldenrod;
+}
+
+/* score board area */
+.round-description {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.computer-hand,.player-hand {
+    width: 100%;
+    text-align: center;
+    margin-left: -40px;
+}
+
+.scoreboard {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.scoreboard span {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#score {
+    padding: 28px;
+    font-size: 24px;
+    color: white;
+    font-weight: bold;
+    background-color: black;
+    border-radius: 100%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+
+.footer {
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px;
+    background-color: lightgrey;
+    border-top: 3px solid black;
 }
