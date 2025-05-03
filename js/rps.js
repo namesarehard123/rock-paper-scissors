@@ -69,6 +69,7 @@ let computerScore = 0;
 const compHandDiv = document.querySelector(".computer-hand");
 const playerHandDiv = document.querySelector(".player-hand");
 const finalResultDiv = document.querySelector(".final-result");
+const resetContainer = document.querySelector(".reset-container")
 const resetBtn = document.querySelector("#reset-btn");
 const rpsButtons = Array.from(document.querySelectorAll(".rps"))
 
@@ -94,8 +95,8 @@ function displayWinner(playerScore, computerScore) {
 }
 
 function resetGame() {
-    resetBtn.classList.remove("hidden");
     rpsButtons.forEach((btn) => btn.disabled = true);
+    resetContainer.classList.remove("hidden");
     // game value resets in a diff func (startGame)
 }
 
@@ -106,7 +107,7 @@ function startGame() {
     displayHands();
     updateScore(playerScore, computerScore);
     rpsButtons.forEach((btn) => btn.disabled = false);
-    resetBtn.classList.add("hidden")
+    resetContainer.classList.add("hidden")
 
 }
 
