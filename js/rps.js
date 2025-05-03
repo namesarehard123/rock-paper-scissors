@@ -38,21 +38,21 @@ function playRound(humanChoice, computerChoice) {
    
 }
 
-function playGame(roundCount) {
+// function playGame(roundCount) {
 
-    for (let i = 0; i < roundCount; i++) {
-        let humanChoice = getHumanChoice();
-        let compChoice = getComputerChoice();
-        let winner = playRound(humanChoice, compChoice);
-        if (winner === "player") {
-            humanScore += 1;
-        } else if (winner === "computer") {
-            computerScore += 1;
-        }
-    }
-}
+//     for (let i = 0; i < roundCount; i++) {
+//         let humanChoice = getHumanChoice();
+//         let compChoice = getComputerChoice();
+//         let winner = playRound(humanChoice, compChoice);
+//         if (winner === "player") {
+//             humanScore += 1;
+//         } else if (winner === "computer") {
+//             computerScore += 1;
+//         }
+//     }
+// }
 
-playGame(5);
-console.log(humanScore);
-console.log(computerScore);
+// playGame(5);
+// console.log(humanScore);
+// console.log(computerScore);
 
